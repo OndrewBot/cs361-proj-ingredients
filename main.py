@@ -8,7 +8,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['https://recipe-builder.onrender.com/'],
+    allow_origins=['https://recipe-builder.onrender.com/*'],
     allow_methods=['*'],
     allow_headers=['*']
 )
