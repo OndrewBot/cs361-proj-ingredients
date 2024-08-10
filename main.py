@@ -26,7 +26,16 @@ class Ingredient(HashModel):
 
 @app.get("/ingredients")
 async def get_all_ingredients():
-    return Ingredient.all_pks()
+    return [format(pk) for pk in Ingredient.all_pks()]
+
+
+def format(pk: str):
+    ingredient = Ingredient.get(pk)
+
+    return {
+        'id': ingredient.pk,
+        'name': ingredient.name
+    }
 
 @app.get("/ingredients/{item_id}")
 def get_ingredient(item_id: int, q: Optional[str] = None):
