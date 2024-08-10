@@ -1,8 +1,17 @@
 from typing import Optional
 from redis_om import get_redis_connection, HashModel
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['https://recipe-builder.onrender.com/'],
+    allow_methods=['*'],
+    allow_headers=['*']
+)
 
 redis = get_redis_connection(
     host="red-cqra9k56l47c73ebbuv0",
