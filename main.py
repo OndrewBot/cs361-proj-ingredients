@@ -40,7 +40,7 @@ def format(pk: str):
     }
 
 @app.get("/ingredients/{item_id}")
-def get_ingredient(item_id: int, q: Optional[str] = None):
+def get_ingredient(item_id: str, q: Optional[str] = None):
     return Ingredient.get(item_id)
 
 @app.post("/ingredients")
@@ -48,5 +48,5 @@ def add_ingredient(ingredient: Ingredient):
     return ingredient.save()
 
 @app.delete("/ingredients/{item_id}")
-def del_ingredient(item_id: int, q: Optional[str] = None):
+def del_ingredient(item_id: str, q: Optional[str] = None):
     return Ingredient.delete(item_id)
