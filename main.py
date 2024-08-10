@@ -9,7 +9,7 @@ origins = ["https://recipe-builder.onrender.com/",
            "https://recipe-builder.onrender.com/ingredients"]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_methods=['*'],
     allow_credentials=True,
     allow_headers=['*']
