@@ -5,11 +5,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
-
+origins = ["https://recipe-builder.onrender.com/",
+           "https://recipe-builder.onrender.com/ingredients"]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['https://recipe-builder.onrender.com/*'],
+    allow_origins=origins,
     allow_methods=['*'],
+    allow_credentials=True,
     allow_headers=['*']
 )
 
